@@ -320,6 +320,20 @@ footer span{
     .menu>.listElem{
         padding: 12px 0;
     }
+    .mobileIcon1, .mobileIcon2{
+        position: fixed;
+        top: 25px;
+    }
+    .mobileIcon1{
+        left: 15px;
+    }
+    .mobileIcon2{
+        left: 60px;
+    }
+    .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
+        margin: 0;
+        padding: 0;
+    }
     header h1{
         top: 45%;
     }
@@ -355,24 +369,10 @@ footer span{
     }
 }
 @media (orientation: landscape) and (min-width: 640px){
-    .menu>.listElem{
-        padding: 13px 0;
-    }
-    i.burger{
-        font-size: 30px;
-    }
     header h1{
         font-size: 25px;
     }
     header h2{
         font-size: 22px;
-    }
-}
-@media (orientation: landscape) and (min-width: 730px){
-    .menu{
-        top: 70px;
-    }
-    .menu>.listElem{
-        padding: 15px 0;
     }
 }

@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector('.menu4').addEventListener('click', fourthMenuElement);
 
     // Arrow script
-    let arrowScrolledSection = document.querySelector('main');
+    let arrowScrolledSection = document.querySelector('.about');
     document.querySelector('.fas.fa-arrow-circle-down').addEventListener('click', function(){
-        arrowScrolledSection.scrollIntoView({behavior: "smooth"}); 
+        arrowScrolledSection.scrollIntoView({behavior: "smooth", block: 'center'}); 
     });
 
     // IN CASE SOMEONE STILL USES IE
@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // Menu scripts
 
-    let mobileNav = document.querySelector('.mobileNav');
+    let menu = document.querySelector('.menu');
     let mobileBurger = document.querySelector('i.burger');
     let mobileIcon1 = document.querySelector('.fab.fa-linkedin');
     let mobileIcon2 = document.querySelector('.fab.fa-github');
 
 
     function menuBurger(){
-        mobileNav.classList.toggle('clicked');
+        menu.classList.toggle('clicked');
         mobileBurger.classList.toggle('clicked');
         mobileIcon1.classList.toggle('clicked');
         mobileIcon2.classList.toggle('clicked');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function firstMenuElement(){
         section1.scrollIntoView({behavior: 'smooth'});
-        mobileNav.classList.remove('clicked');
+        menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
         mobileIcon1.classList.remove('clicked');
         mobileIcon2.classList.remove('clicked');
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let section2 = document.querySelector('.about');
 
     function secondMenuElement(){
-        section2.scrollIntoView({behavior: 'smooth'});
-        mobileNav.classList.remove('clicked');
+        section2.scrollIntoView({behavior: 'smooth', block: 'center'});
+        menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
         mobileIcon1.classList.remove('clicked');
         mobileIcon2.classList.remove('clicked');
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let section3 = document.querySelector('.projects');
 
     function thirdMenuElement(){
-        section3.scrollIntoView({behavior: 'smooth'});
-        mobileNav.classList.remove('clicked');
+        section3.scrollIntoView({behavior: 'smooth', block: 'center'});
+        menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
         mobileIcon1.classList.remove('clicked');
         mobileIcon2.classList.remove('clicked');
@@ -103,11 +103,28 @@ document.addEventListener('DOMContentLoaded', function(){
     let section4 = document.querySelector('.contact');
     
     function fourthMenuElement(){
-        section4.scrollIntoView({behavior: 'smooth'});
-        mobileNav.classList.remove('clicked');
+        section4.scrollIntoView({behavior: 'smooth', block: 'center'});
+        menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
         mobileIcon1.classList.remove('clicked');
         mobileIcon2.classList.remove('clicked');
+    }
+
+
+
+    function menuDarkColorChange(){
+        let menuEelems = document.querySelectorAll('.menu>.listElem');
+        for(i = 0; i < menuEelems.length; i++){
+            menuEelems[i].style.color = '#F8F5E6';
+            menuEelems[i].style.borderRight = '1px solid #F8F5E6';
+        }
+    }
+    function menuLightColorChange(){
+        let menuEelems = document.querySelectorAll('.menu>.listElem');
+        for(i = 0; i < menuEelems.length; i++){
+            menuEelems[i].style.color = '#222220';
+            menuEelems[i].style.borderRight = '1px solid #222220';
+        }
     }
 
     let section3Position = section3.offsetTop;
@@ -115,12 +132,20 @@ document.addEventListener('DOMContentLoaded', function(){
     window.addEventListener('scroll', function(){
         if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
             document.querySelector('i.burger').style.color = '#222220';
+            document.querySelector('.menu').style.backgroundColor = '#222220';
+            menuDarkColorChange();
         }else if(window.scrollY > section4Position - 20){
             document.querySelector('i.burger').style.color = '#F8F5E6';
+            document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
+            menuLightColorChange();
         }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
             document.querySelector('i.burger').style.color = '#222220';
+            document.querySelector('.menu').style.backgroundColor = '#222220';
+            menuDarkColorChange();
         }else if(window.scrollY < section3Position){
             document.querySelector('i.burger').style.color = '#F8F5E6';
+            document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
+            menuLightColorChange();
         }     
     });
 });

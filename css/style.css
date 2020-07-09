@@ -83,8 +83,6 @@ i.burger.clicked{
 .menu{
     position: relative;
     width: 100%;
-    top: 75px;
-    right: 0;
     transition: .3s;
     transform: scale(0);
     z-index: 2;
@@ -112,7 +110,6 @@ i.burger.clicked{
     border-top: 1px solid var(--darkColor);
 }
 .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
-    transform: scale(0);
     margin: 15px 0 0 20px;
     font-size: 30px;
 }
@@ -122,8 +119,12 @@ i.burger.clicked{
 .fab.fa-github{
     color: #F84D26;
 }
-.fab.fa-linkedin.mobile.clicked, .fab.fa-github.mobile.clicked{
-    transform: scale(1);
+.languageIcon{
+    margin-left: 20px;
+    position: relative;
+    /* top: -4px; */
+    color: var(--darkColor);
+    font-size: 15px;
 }
 
 /*End of header styles*/
@@ -228,7 +229,7 @@ i.burger.clicked{
     border-radius: 5px;
     font-size: 15px;
 }
-.contact input[type='text']{
+.contact input[type='text'], .contact input[type='email']{
     height: 35px;
     padding: 5px;
 }
@@ -368,7 +369,7 @@ footer span{
     .contact>form>*{
         margin: 25px auto;
     }
-    .contact input[type='text']{
+    .contact input[type='text'], .contact input[type='email']{
         height: 40px;
     }
     .contact textarea{
@@ -406,6 +407,9 @@ footer span{
 @media (orientation: landscape){
     .menu>.listElem{
         padding: 12px 0;
+    }
+    .menu.clicked>.listElem:nth-child(1){
+        margin-top: 60px;
     }
     .mobileIcon1, .mobileIcon2{
         position: fixed;

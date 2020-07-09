@@ -55,15 +55,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let menu = document.querySelector('.menu');
     let mobileBurger = document.querySelector('i.burger');
-    let mobileIcon1 = document.querySelector('.fab.fa-linkedin');
-    let mobileIcon2 = document.querySelector('.fab.fa-github');
 
 
     function menuBurger(){
         menu.classList.toggle('clicked');
         mobileBurger.classList.toggle('clicked');
-        mobileIcon1.classList.toggle('clicked');
-        mobileIcon2.classList.toggle('clicked');
     };
 
 
@@ -75,8 +71,6 @@ document.addEventListener('DOMContentLoaded', function(){
         section1.scrollIntoView({behavior: 'smooth'});
         menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
-        mobileIcon1.classList.remove('clicked');
-        mobileIcon2.classList.remove('clicked');
     };
 
 
@@ -86,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function(){
         section2.scrollIntoView({behavior: 'smooth', block: 'center'});
         menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
-        mobileIcon1.classList.remove('clicked');
-        mobileIcon2.classList.remove('clicked');
     };
 
     let section3 = document.querySelector('.projects');
@@ -96,8 +88,6 @@ document.addEventListener('DOMContentLoaded', function(){
         section3.scrollIntoView({behavior: 'smooth', block: 'center'});
         menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
-        mobileIcon1.classList.remove('clicked');
-        mobileIcon2.classList.remove('clicked');
     };
 
     let section4 = document.querySelector('.contact');
@@ -106,11 +96,10 @@ document.addEventListener('DOMContentLoaded', function(){
         section4.scrollIntoView({behavior: 'smooth', block: 'center'});
         menu.classList.remove('clicked');
         mobileBurger.classList.remove('clicked');
-        mobileIcon1.classList.remove('clicked');
-        mobileIcon2.classList.remove('clicked');
     }
 
 
+    //Menu color change
 
     function menuDarkColorChange(){
         let menuEelems = document.querySelectorAll('.menu>.listElem');
@@ -129,23 +118,38 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let section3Position = section3.offsetTop;
     let section4Position = section4.offsetTop;
+    let match = window.matchMedia('(min-width: 1280px)').matches;
+    if(match == true){
+        window.addEventListener('scroll', function(){
+            if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
+                document.querySelector('.menu').style.backgroundColor = '#222220';
+                document.querySelector('.languageIcon').style.color = '#F8F5E6';
+                menuDarkColorChange();
+            }else if(window.scrollY > section4Position - 20){
+                document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
+                document.querySelector('.languageIcon').style.color = '#222220';
+                menuLightColorChange();
+            }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
+                document.querySelector('.menu').style.backgroundColor = '#222220';
+                document.querySelector('.languageIcon').style.color = '#F8F5E6';
+                menuDarkColorChange();
+            }else if(window.scrollY < section3Position){
+                document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
+                document.querySelector('.languageIcon').style.color = '#222220';
+                menuLightColorChange();
+            }     
+        });
+    };
+    //Burger color change for mobile
     window.addEventListener('scroll', function(){
         if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
             document.querySelector('i.burger').style.color = '#222220';
-            document.querySelector('.menu').style.backgroundColor = '#222220';
-            menuDarkColorChange();
         }else if(window.scrollY > section4Position - 20){
             document.querySelector('i.burger').style.color = '#F8F5E6';
-            document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
-            menuLightColorChange();
         }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
             document.querySelector('i.burger').style.color = '#222220';
-            document.querySelector('.menu').style.backgroundColor = '#222220';
-            menuDarkColorChange();
         }else if(window.scrollY < section3Position){
             document.querySelector('i.burger').style.color = '#F8F5E6';
-            document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
-            menuLightColorChange();
         }     
     });
 });

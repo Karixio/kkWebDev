@@ -122,9 +122,9 @@ i.burger.clicked{
 .languageIcon{
     margin-left: 20px;
     position: relative;
-    /* top: -4px; */
+    top: -4px;
     color: var(--darkColor);
-    font-size: 15px;
+    font-size: 18px;
 }
 
 /*End of header styles*/
@@ -421,6 +421,11 @@ footer span{
     .mobileIcon2{
         left: 60px;
     }
+    .languageIcon{
+        position: fixed;
+        top: 20px;
+        left: 90px;
+    }
     .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
         margin: 0;
         padding: 0;
@@ -489,9 +494,10 @@ footer span{
         padding: 18px 0;
         font-size: 18px;
     }
-    .mobileIcon1, .mobileIcon2{
+    .mobileIcon1, .mobileIcon2, .languageIcon{
         position: relative;
         top: initial;
+        margin-left: 20px;
     }
     .mobileIcon1{
         left: initial;
@@ -499,9 +505,12 @@ footer span{
     .mobileIcon2{
         left: initial;
     }
+    .languageIcon{
+        left: initial;
+    }
     .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
         font-size: 35px;
-        margin: 15px 0 0 20px;
+        margin: 15px 0 0 0;
     }
     .about{
         width: 60%;
@@ -589,8 +598,6 @@ footer span{
         border-top: none;
     }
     .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
-        margin: 0 0 0 20px;
-        transform: scale(1);
         text-align: center;
     }
     header h1{

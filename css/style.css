@@ -598,6 +598,7 @@ footer span{
         border-top: none;
     }
     .fab.fa-linkedin.mobile, .fab.fa-github.mobile{
+        margin: 0;
         text-align: center;
     }
     header h1{

@@ -211,7 +211,8 @@ i.burger.clicked{
 
 /* Contact styles */
 label.hide{
-    display: none !important;
+    visibility: hidden;
+    position: absolute;
 }
 .contact{
     padding: 35px 0;

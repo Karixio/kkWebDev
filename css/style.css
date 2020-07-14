@@ -210,6 +210,9 @@ i.burger.clicked{
 }
 
 /* Contact styles */
+label.hide{
+    display: none !important;
+}
 .contact{
     padding: 35px 0;
 }

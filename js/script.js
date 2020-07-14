@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+    //CSS Variables
+    let darkColor = getComputedStyle(document.documentElement).getPropertyValue('--darkColor'); //#222220
+    let lightColor = getComputedStyle(document.documentElement).getPropertyValue('--lightColor'); //#F8F5E6
+
     // Menu event listeners
 
     document.querySelector('i.burger').addEventListener('click', menuBurger);
@@ -104,38 +108,38 @@ document.addEventListener('DOMContentLoaded', function(){
     function menuDarkColorChange(){
         let menuEelems = document.querySelectorAll('.menu>.listElem');
         for(i = 0; i < menuEelems.length; i++){
-            menuEelems[i].style.color = '#F8F5E6';
-            menuEelems[i].style.borderRight = '1px solid #F8F5E6';
+            menuEelems[i].style.color = lightColor;
+            menuEelems[i].style.borderRight = '1px solid ' + lightColor;
         }
     }
     function menuLightColorChange(){
         let menuEelems = document.querySelectorAll('.menu>.listElem');
         for(i = 0; i < menuEelems.length; i++){
-            menuEelems[i].style.color = '#222220';
-            menuEelems[i].style.borderRight = '1px solid #222220';
+            menuEelems[i].style.color = darkColor;
+            menuEelems[i].style.borderRight = '1px solid ' + darkColor;
         }
     }
 
     let section3Position = section3.offsetTop;
     let section4Position = section4.offsetTop;
-    let match = window.matchMedia('(min-width: 1280px)').matches;
-    if(match == true){
+    let desktopMatch = window.matchMedia('(min-width: 1280px)').matches;
+    if(desktopMatch == true){
         window.addEventListener('scroll', function(){
             if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
-                document.querySelector('.menu').style.backgroundColor = '#222220';
-                document.querySelector('.languageIcon').style.color = '#F8F5E6';
+                document.querySelector('.menu').style.backgroundColor = darkColor;
+                document.querySelector('.languageIcon').style.color = lightColor;
                 menuDarkColorChange();
             }else if(window.scrollY > section4Position - 20){
-                document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
-                document.querySelector('.languageIcon').style.color = '#222220';
+                document.querySelector('.menu').style.backgroundColor = lightColor;
+                document.querySelector('.languageIcon').style.color = darkColor;
                 menuLightColorChange();
             }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
-                document.querySelector('.menu').style.backgroundColor = '#222220';
-                document.querySelector('.languageIcon').style.color = '#F8F5E6';
+                document.querySelector('.menu').style.backgroundColor = darkColor;
+                document.querySelector('.languageIcon').style.color = lightColor;
                 menuDarkColorChange();
             }else if(window.scrollY < section3Position){
-                document.querySelector('.menu').style.backgroundColor = '#F8F5E6';
-                document.querySelector('.languageIcon').style.color = '#222220';
+                document.querySelector('.menu').style.backgroundColor = lightColor;
+                document.querySelector('.languageIcon').style.color = darkColor;
                 menuLightColorChange();
             }     
         });
@@ -143,13 +147,13 @@ document.addEventListener('DOMContentLoaded', function(){
     //Burger color change for mobile
     window.addEventListener('scroll', function(){
         if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
-            document.querySelector('i.burger').style.color = '#222220';
+            document.querySelector('i.burger').style.color = darkColor;
         }else if(window.scrollY > section4Position - 20){
-            document.querySelector('i.burger').style.color = '#F8F5E6';
+            document.querySelector('i.burger').style.color = lightColor;
         }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
-            document.querySelector('i.burger').style.color = '#222220';
+            document.querySelector('i.burger').style.color = darkColor;
         }else if(window.scrollY < section3Position){
-            document.querySelector('i.burger').style.color = '#F8F5E6';
+            document.querySelector('i.burger').style.color = lightColor;
         }     
     });
 });

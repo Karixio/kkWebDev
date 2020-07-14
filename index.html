@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="KKWebDev, Portfolio, Web Developer, Front-End Developer, Krzysztof Kozłowski, Karixio">
+    <meta name="description"           
+            content="KKWebDev to portfolio Testera Oprogramowania oraz Web Developera Krzysztofa Kozłowskiego">
+    <meta name="author" content="Krzysztof Kozłowski">
     <title>KKWebDev</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b992eb10ab.js" crossorigin="anonymous"></script>
@@ -19,8 +23,8 @@
                     <a class="listElem menu3">Projekty</a>
                     <a class="listElem menu4">Kontakt</a>
                     <a class="listElem">CV</a>
-                    <a target="_blank" href="https://www.linkedin.com/in/krzysztof-koz%C5%82owski-8664b2154/" class="mobileIcon1"><i class="fab fa-linkedin mobile"></i></a>
-                    <a target="_blank" href="https://github.com/Karixio" class="mobileIcon2"><i class="fab fa-github mobile"></i></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/krzysztof-koz%C5%82owski-8664b2154/" class="mobileIcon1" aria-label="Go to LinkedIn"><i class="fab fa-linkedin mobile"></i></a>
+                    <a target="_blank" rel="noreferrer" href="https://github.com/Karixio" class="mobileIcon2" aria-label="Go to GitHub"><i class="fab fa-github mobile"></i></a>
                     <a href="ENindex.html" class="languageIcon">ENG</a>
                 </nav>
             <h1>Krzysztof Kozłowski</h1>
@@ -37,37 +41,39 @@
             <div class="project">
                 <h3>Nazwa projektu</h3>
                 <p>Opis Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="#"><i class="far fa-play-circle play"></i></a><a href="#"><i class="fas fa-code"></i></a>
+                <a href="#" aria-label="Go to live version"><i class="far fa-play-circle play"></i></a><a href="#" aria-label="Go to GitHub"><i class="fas fa-code"></i></a>
             </div>
             <div class="project">
                 <h3>Nazwa projektu</h3>
                 <p>Opis Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="#"><i class="far fa-play-circle play"></i></a><a href="#"><i class="fas fa-code"></i></a>
+                <a href="#" aria-label="Go to live version"><i class="far fa-play-circle play"></i></a><a href="#" aria-label="Go to GitHub"><i class="fas fa-code"></i></a>
             </div>
             <div class="project">
                 <h3>Nazwa projektu</h3>
                 <p>Opis Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="#"><i class="far fa-play-circle play"></i></a><a href="#"><i class="fas fa-code"></i></a>
+                <a href="#" aria-label="Go to live version"><i class="far fa-play-circle play"></i></a><a href="#" aria-label="Go to GitHub"><i class="fas fa-code"></i></a>
             </div>
         </section>
         <section class="contact">
             <h2>Kontakt</h2>
             <form action="php/form.php" method="POST">
-                <input type="text" name="name" id="" required placeholder="Imię i nazwisko / Nazwa firmy">
-                <input type="email" name="email" id="" placeholder="Adres email">
-                <textarea name="textValue" id="" required placeholder="Treść wiadomości.."></textarea>
+                <label class="hide" for="name">Imię i nazwisko / Nazwa firmy</label>
+                <input type="text" name="name" id="name" required placeholder="Imię i nazwisko / Nazwa firmy">
+                <label class="hide" for="email">Adres email</label>
+                <input type="email" name="email" id="email" placeholder="Adres email">
+                <label class="hide" for="textValue">Treść wiadomości..</label>
+                <textarea name="textValue" id="textValue" required placeholder="Treść wiadomości.."></textarea>
                 <input type="submit" name="submit" value="Wyślij">
             </form>
         </section>
     </main>
     <footer>
         <div>
-            <a target="_blank" href="https://www.linkedin.com/in/krzysztof-koz%C5%82owski-8664b2154/"><i class="fab fa-linkedin"></i></a>
-            <a target="_blank" href="https://github.com/Karixio"><i class="fab fa-github"></i></a>
+            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/krzysztof-koz%C5%82owski-8664b2154/"><i class="fab fa-linkedin" aria-label="Go to LinkedIn"></i></a>
+            <a target="_blank" rel="noreferrer" href="https://github.com/Karixio" aria-label="Go to GitHub"><i class="fab fa-github"></i></a>
             <span>&copy; Created By</span>
             <span>Krzysztof Kozłowski</span>
         </div>
     </footer>
-
 </body>
 </html>

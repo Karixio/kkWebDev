@@ -75,7 +75,7 @@ i.burger{
     top: 25px;
     right: 15px;
     font-size: 25px;
-    z-index: 999;
+    z-index: 9;
 }
 i.burger.clicked{
     color: var(--darkColor) !important;

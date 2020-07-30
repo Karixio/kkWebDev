@@ -122,6 +122,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let section3Position = section3.offsetTop;
     let section4Position = section4.offsetTop;
+
+    window.addEventListener('resize', function(){
+        section3Position = section3.offsetTop;
+        section4Position = section4.offsetTop;
+    });
+
     let desktopMatch = window.matchMedia('(min-width: 1280px)').matches;
     if(desktopMatch == true){
         window.addEventListener('scroll', function(){
@@ -155,5 +161,106 @@ document.addEventListener('DOMContentLoaded', function(){
         }else if(window.scrollY < section3Position){
             document.querySelector('i.burger').style.color = lightColor;
         }     
+    });
+
+    
+    let cv = document.querySelector('.cv');
+    let cvNotification;
+
+    document.addEventListener('DOMSubtreeModified', function(){
+                cvNotification = document.querySelector('.cvInfo');
+            });
+
+    cv.addEventListener('click', function(){
+        
+        if (typeof(cvNotification) == 'undefined'){
+            //create notification
+            let cvInfo = document.createElement('div');
+            cvInfo.style.position = 'fixed';
+            if(desktopMatch == true){
+               cvInfo.style.height = '220px';
+               cvInfo.style.width = '400px'; 
+            }else{
+                cvInfo.style.height = '100vh';
+                cvInfo.style.width = '100%';
+                cvInfo.style.zIndex = '10';
+            };
+            cvInfo.style.backgroundColor = darkColor;
+            cvInfo.style.top = '50%';
+            cvInfo.style.left = '50%';
+            cvInfo.style.transform = 'translate(-50%, -50%)';
+            let insertCvAfter = document.querySelector('footer');
+            insertCvAfter.after(cvInfo);
+
+            //notification close button
+            let closeNofitication = document.createElement('i');
+            closeNofitication.classList.add('fas');
+            closeNofitication.classList.add('fa-times')
+            closeNofitication.style.position = 'absolute';
+            closeNofitication.style.top = '12px';
+            closeNofitication.style.right = '25px';
+            closeNofitication.style.fontSize = '28px';
+            if(desktopMatch != true){
+                closeNofitication.style.zIndex = '10';
+            }
+            cvInfo.appendChild(closeNofitication);
+            closeNofitication.addEventListener('click', function(){
+                cvInfo.remove();
+                cvNotification = undefined;
+            });
+
+            //notification content
+            let notificationContent = document.createElement('p');
+            notificationContent.style.position = 'relative';
+            if(desktopMatch == true){
+                notificationContent.style.marginTop = '60px';
+                notificationContent.style.padding = '0 25px';
+            }else{
+                if(window.matchMedia('(orientation: landscape)').matches){
+                    notificationContent.style.marginTop = '30vh';
+                    notificationContent.style.padding = '0 50px'; 
+                }else{
+                    notificationContent.style.marginTop = '40vh';
+                    notificationContent.style.padding = '0 25px';
+                };
+            };
+            notificationContent.style.textAlign = 'center';
+            notificationContent.style.color = lightColor;
+            if(window.location.pathname.includes('ENindex')){
+                notificationContent.innerText = 'New version of my CV is under development. Till it\'s not ready you can view my current CV in PDF format by clicking button below.';
+            }else{
+                notificationContent.innerText = 'Nowa wersja mojego CV jest w trakcie tworzenia. Póki nie jest gotowa możesz zobaczyć moje aktualne CV w formacie PDF klikając w poniższy przycisk.';
+            };
+            cvInfo.appendChild(notificationContent);
+
+            //download button
+            let notificationButton = document.createElement('button');
+            notificationButton.style.position = 'absolute';
+            if(window.matchMedia('(orientation: landscape)').matches){
+                notificationButton.style.bottom = '10%';
+            }else{
+                notificationButton.style.bottom = '20%';
+            };
+            notificationButton.style.left = '50%';
+            notificationButton.style.transform = 'translateX(-50%)';
+            notificationButton.style.width = '180px';
+            notificationButton.style.height = '30px';
+            notificationButton.style.lineHeight = '30px';
+            notificationButton.style.border = 'none';
+            notificationButton.style.borderRadius = '3px';
+            notificationButton.style.backgroundColor = lightColor;
+            notificationButton.style.color = darkColor;
+            notificationButton.style.textTransform = 'uppercase';
+            if(window.location.pathname.includes('ENindex')){
+                notificationButton.innerText = 'View'
+            }else{
+                notificationButton.innerText = 'Wyświetl';
+            };
+            cvInfo.appendChild(notificationButton);
+            notificationButton.addEventListener('click', function(){
+                //download file
+                //window.open(//plikPDF)
+            });
+        }
     });
 });

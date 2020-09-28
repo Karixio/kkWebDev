@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     
     let cv = document.querySelector('.cv');
-    let cvNotification;
+    let cvNotification = undefined;
 
     document.addEventListener('DOMSubtreeModified', function(){
                 cvNotification = document.querySelector('.cvInfo');
@@ -227,9 +227,9 @@ document.addEventListener('DOMContentLoaded', function(){
             notificationContent.style.textAlign = 'center';
             notificationContent.style.color = lightColor;
             if(window.location.pathname.includes('ENindex')){
-                notificationContent.innerText = 'New version of my CV is under development. Till it\'s not ready you can view my current CV in PDF format by clicking button below.';
+                notificationContent.innerText = 'You can view my current CV in PDF format by clicking button below.';
             }else{
-                notificationContent.innerText = 'Nowa wersja mojego CV jest w trakcie tworzenia. Póki nie jest gotowa możesz zobaczyć moje aktualne CV w formacie PDF klikając w poniższy przycisk.';
+                notificationContent.innerText = 'Możesz zobaczyć moje aktualne CV w formacie PDF klikając w poniższy przycisk.';
             };
             cvInfo.appendChild(notificationContent);
 
@@ -259,8 +259,8 @@ document.addEventListener('DOMContentLoaded', function(){
             cvInfo.appendChild(notificationButton);
             notificationButton.addEventListener('click', function(){
                 //download file
-                //window.open(//plikPDF)
+                window.open("../docs/CV.pdf", "_blank");
             });
-        }
+        };
     });
 });

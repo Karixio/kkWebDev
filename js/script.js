@@ -163,10 +163,16 @@ document.addEventListener('DOMContentLoaded', function(){
         }     
     });
 
-    
+    //BEGINING OF CV SECTION
+    let portraitMatch = window.matchMedia('(orientation: portrait)').matches;
+    let tabletMatch = window.matchMedia('(min-width: 768px)').matches;
     let cv = document.querySelector('.cv');
     let cvNotification = undefined;
-
+    window.addEventListener('resize', function(){
+        desktopMatch = window.matchMedia('(min-width: 1280px)').matches;
+        portraitMatch = window.matchMedia('(orientation: portrait)').matches;
+        tabletMatch = window.matchMedia('(min-width: 768px)').matches;
+    });
     document.addEventListener('DOMSubtreeModified', function(){
                 cvNotification = document.querySelector('.cvInfo');
             });
@@ -180,6 +186,10 @@ document.addEventListener('DOMContentLoaded', function(){
             if(desktopMatch == true){
                cvInfo.style.height = '220px';
                cvInfo.style.width = '400px'; 
+            }else if(desktopMatch == false && tabletMatch == true && portraitMatch == true){
+                cvInfo.style.height = '40vh';
+                cvInfo.style.width = '50%';
+                cvInfo.style.zIndex = '10';
             }else{
                 cvInfo.style.height = '100vh';
                 cvInfo.style.width = '100%';
@@ -197,8 +207,8 @@ document.addEventListener('DOMContentLoaded', function(){
             closeNofitication.classList.add('fas');
             closeNofitication.classList.add('fa-times')
             closeNofitication.style.position = 'absolute';
-            closeNofitication.style.top = '12px';
-            closeNofitication.style.right = '25px';
+            closeNofitication.style.top = '14px';
+            closeNofitication.style.right = '27px';
             closeNofitication.style.fontSize = '28px';
             if(desktopMatch != true){
                 closeNofitication.style.zIndex = '10';
@@ -213,16 +223,17 @@ document.addEventListener('DOMContentLoaded', function(){
             let notificationContent = document.createElement('p');
             notificationContent.style.position = 'relative';
             if(desktopMatch == true){
-                notificationContent.style.marginTop = '60px';
+                notificationContent.style.marginTop = '80px';
+                notificationContent.style.padding = '0 25px';
+            }else if(desktopMatch == false && tabletMatch == true && portraitMatch == true){
+                notificationContent.style.marginTop = '40%';
+                notificationContent.style.padding = '0 80px';
+            }else if(desktopMatch == false && tabletMatch == false && portraitMatch == true){
+                notificationContent.style.marginTop = '45%';
                 notificationContent.style.padding = '0 25px';
             }else{
-                if(window.matchMedia('(orientation: landscape)').matches){
-                    notificationContent.style.marginTop = '30vh';
-                    notificationContent.style.padding = '0 50px'; 
-                }else{
-                    notificationContent.style.marginTop = '40vh';
-                    notificationContent.style.padding = '0 25px';
-                };
+                notificationContent.style.marginTop = '20%';
+                notificationContent.style.padding = '0 25px';
             };
             notificationContent.style.textAlign = 'center';
             notificationContent.style.color = lightColor;
@@ -263,4 +274,5 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         };
     });
+    //END OF CV SECTION
 });

@@ -167,21 +167,18 @@ document.addEventListener('DOMContentLoaded', function(){
     let portraitMatch = window.matchMedia('(orientation: portrait)').matches;
     let tabletMatch = window.matchMedia('(min-width: 768px)').matches;
     let cv = document.querySelector('.cv');
-    let cvNotification = undefined;
     window.addEventListener('resize', function(){
         desktopMatch = window.matchMedia('(min-width: 1280px)').matches;
         portraitMatch = window.matchMedia('(orientation: portrait)').matches;
         tabletMatch = window.matchMedia('(min-width: 768px)').matches;
     });
-    document.addEventListener('DOMSubtreeModified', function(){
-                cvNotification = document.querySelector('.cvInfo');
-            });
 
     cv.addEventListener('click', function(){
-        
-        if (typeof(cvNotification) == 'undefined'){
-            //create notification
-            let cvInfo = document.createElement('div');
+        const cvInfo = document.createElement('div');
+        cvInfo.className = 'cvPopup';
+
+        if (!document.querySelector('.cvPopup')){
+            //notification properties
             cvInfo.style.position = 'fixed';
             if(desktopMatch == true){
                cvInfo.style.height = '220px';
@@ -207,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function(){
             closeNofitication.classList.add('fas');
             closeNofitication.classList.add('fa-times')
             closeNofitication.style.position = 'absolute';
-            closeNofitication.style.top = '14px';
+            closeNofitication.style.top = '18px';
             closeNofitication.style.right = '27px';
             closeNofitication.style.fontSize = '28px';
             if(desktopMatch != true){
@@ -216,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function(){
             cvInfo.appendChild(closeNofitication);
             closeNofitication.addEventListener('click', function(){
                 cvInfo.remove();
-                cvNotification = undefined;
             });
 
             //notification content

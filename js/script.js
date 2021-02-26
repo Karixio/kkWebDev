@@ -204,11 +204,14 @@ document.addEventListener('DOMContentLoaded', function(){
             closeNofitication.classList.add('fas');
             closeNofitication.classList.add('fa-times')
             closeNofitication.style.position = 'absolute';
-            closeNofitication.style.top = '18px';
-            closeNofitication.style.right = '27px';
+            closeNofitication.style.top = '65px';
+            closeNofitication.style.right = '35px';
             closeNofitication.style.fontSize = '28px';
             if(desktopMatch != true){
                 closeNofitication.style.zIndex = '10';
+                
+            }else if(desktopMatch == true){
+                closeNofitication.style.top = '25px';
             }
             cvInfo.appendChild(closeNofitication);
             closeNofitication.addEventListener('click', function(){
@@ -225,7 +228,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 notificationContent.style.marginTop = '40%';
                 notificationContent.style.padding = '0 80px';
             }else if(desktopMatch == false && tabletMatch == false && portraitMatch == true){
-                notificationContent.style.marginTop = '45%';
+                notificationContent.style.marginTop = '0%';
+                notificationContent.style.top = '45%';
+                notificationContent.style.left = '50%';
+                notificationContent.style.transform = 'translateX(-50%)';
                 notificationContent.style.padding = '0 25px';
             }else{
                 notificationContent.style.marginTop = '20%';

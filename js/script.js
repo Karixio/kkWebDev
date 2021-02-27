@@ -131,15 +131,15 @@ document.addEventListener('DOMContentLoaded', function(){
     let desktopMatch = window.matchMedia('(min-width: 1280px)').matches;
     if(desktopMatch == true){
         window.addEventListener('scroll', function(){
-            if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
+            if(window.scrollY > section3Position - menu.offsetHeight && window.scrollY < section4Position - menu.offsetHeight){
                 document.querySelector('.menu').style.backgroundColor = darkColor;
                 document.querySelector('.languageIcon').style.color = lightColor;
                 menuDarkColorChange();
-            }else if(window.scrollY > section4Position - 20){
+            }else if(window.scrollY > section4Position - menu.offsetHeight){
                 document.querySelector('.menu').style.backgroundColor = lightColor;
                 document.querySelector('.languageIcon').style.color = darkColor;
                 menuLightColorChange();
-            }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
+            }else if(window.scrollY < section4Position && window.scrollY > section3Position - menu.offsetHeight){
                 document.querySelector('.menu').style.backgroundColor = darkColor;
                 document.querySelector('.languageIcon').style.color = lightColor;
                 menuDarkColorChange();
@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', function(){
     };
     //Burger color change for mobile
     window.addEventListener('scroll', function(){
-        if(window.scrollY > section3Position - 20 && window.scrollY < section4Position - 20){
+        if(window.scrollY > section3Position - mobileBurger.offsetHeight && window.scrollY < section4Position - mobileBurger.offsetHeight){
             document.querySelector('i.burger').style.color = darkColor;
-        }else if(window.scrollY > section4Position - 20){
+        }else if(window.scrollY > section4Position - mobileBurger.offsetHeight){
             document.querySelector('i.burger').style.color = lightColor;
-        }else if(window.scrollY < section4Position && window.scrollY > section3Position - 20){
+        }else if(window.scrollY < section4Position && window.scrollY > section3Position - mobileBurger.offsetHeight){
             document.querySelector('i.burger').style.color = darkColor;
         }else if(window.scrollY < section3Position){
             document.querySelector('i.burger').style.color = lightColor;
@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function(){
             closeNofitication.style.top = '65px';
             closeNofitication.style.right = '35px';
             closeNofitication.style.fontSize = '28px';
+            closeNofitication.style.cursor = 'pointer';
             if(desktopMatch != true){
                 closeNofitication.style.zIndex = '10';
                 
@@ -264,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function(){
             notificationButton.style.backgroundColor = lightColor;
             notificationButton.style.color = darkColor;
             notificationButton.style.textTransform = 'uppercase';
+            notificationButton.style.cursor = 'pointer';
             if(window.location.pathname.includes('ENindex')){
                 notificationButton.innerText = 'View'
             }else{

@@ -279,4 +279,31 @@ document.addEventListener('DOMContentLoaded', function(){
         };
     });
     //END OF CV SECTION
+
+    //prevent form sedn for github.io
+    const form = document.querySelector('form');
+    form.addEventListener('click', function(e){
+        e.preventDefault();
+        const mailNotificationBoxBack = document.createElement('div');
+        mailNotificationBoxBack.style.position = 'fixed';
+        mailNotificationBoxBack.style.zIndex = '999';
+        mailNotificationBoxBack.style.top = '0';
+        mailNotificationBoxBack.style.left = '0';
+        mailNotificationBoxBack.style.width = '100%';
+        mailNotificationBoxBack.style.height = '100%';
+        mailNotificationBoxBack.style.backgroundColor = 'black';
+        mailNotificationBoxBack.style.opacity = '0.7';
+        document.body.appendChild(mailNotificationBoxBack)
+        const mailNotificationBox = document.createElement('div');
+        mailNotificationBox.style.position = 'absolute';
+        mailNotificationBox.style.top = '50%';
+        mailNotificationBox.style.left = '50%';
+        mailNotificationBox.style.transform = 'translate(-50%, -50%)';
+        mailNotificationBox.style.width = '400px';
+        mailNotificationBox.style.height = '150px';
+        mailNotificationBox.style.backgroundColor = lightColor;
+        mailNotificationBox.style.color = darkColor;
+        mailNotificationBox.textContent = 'Wysyłanie maila z hostingu github.io nie jest możliwe :(';
+        mailNotificationBoxBack.appendChild(mailNotificationBox)
+    })
 });

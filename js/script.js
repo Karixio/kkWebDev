@@ -285,25 +285,25 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('click', function(e){
         e.preventDefault();
         const mailNotificationBoxBack = document.createElement('div');
-        mailNotificationBoxBack.style.position = 'fixed';
-        mailNotificationBoxBack.style.zIndex = '999';
-        mailNotificationBoxBack.style.top = '0';
-        mailNotificationBoxBack.style.left = '0';
-        mailNotificationBoxBack.style.width = '100%';
-        mailNotificationBoxBack.style.height = '100%';
-        mailNotificationBoxBack.style.backgroundColor = 'black';
-        mailNotificationBoxBack.style.opacity = '0.7';
+        mailNotificationBoxBack.classList.add('mailNotificationBoxBack');
         document.body.appendChild(mailNotificationBoxBack)
         const mailNotificationBox = document.createElement('div');
-        mailNotificationBox.style.position = 'absolute';
-        mailNotificationBox.style.top = '50%';
-        mailNotificationBox.style.left = '50%';
-        mailNotificationBox.style.transform = 'translate(-50%, -50%)';
-        mailNotificationBox.style.width = '400px';
-        mailNotificationBox.style.height = '150px';
-        mailNotificationBox.style.backgroundColor = lightColor;
-        mailNotificationBox.style.color = darkColor;
-        mailNotificationBox.textContent = 'Wysyłanie maila z hostingu github.io nie jest możliwe :(';
-        mailNotificationBoxBack.appendChild(mailNotificationBox)
+        mailNotificationBox.classList.add('mailNotificationBox');
+        mailNotificationBoxBack.appendChild(mailNotificationBox);
+        const mailNotificationBoxText = document.createElement('p');
+        mailNotificationBoxText.classList.add('mailNotificationBoxText')
+        if(window.location.href.indexOf('ENindex') > -1){
+            mailNotificationBoxText.textContent = 'Sending e-mail from github.io hosting is not possible :(';
+        }else{
+            mailNotificationBoxText.textContent = 'Wysyłanie maila z hostingu github.io nie jest możliwe :('; 
+        }
+        mailNotificationBox.appendChild(mailNotificationBoxText);
+        const mailNotificationBoxButton = document.createElement('button');
+        mailNotificationBoxButton.classList.add('mailNotificationBoxButton');
+        mailNotificationBoxButton.textContent = 'OK';
+        mailNotificationBox.appendChild(mailNotificationBoxButton);
+        mailNotificationBoxButton.addEventListener('click', function(){
+            mailNotificationBoxBack.remove();
+        })
     })
 });

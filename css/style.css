@@ -255,6 +255,44 @@ label.hide {
   padding: 5px;
   resize: none;
 }
+
+.mailNotificationBoxBack {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mailNotificationBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 150px;
+  background-color: var(--lightColor);
+  border-radius: 5px;
+}
+
+.mailNotificationBoxText {
+  padding: 40px 20px 0 20px;
+  text-align: center;
+  color: var(--darkColor);
+}
+
+.mailNotificationBoxButton {
+  color: var(--darkColor);
+  position: relative;
+  left: 50%;
+  top: 12%;
+  transform: translateX(-50%);
+  padding: 5px 40px;
+  cursor: pointer;
+}
+
 /* End of Main section styles */
 
 /* Footer styles*/

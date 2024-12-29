@@ -1,2 +1,2 @@
 # kkWebDev
-My portfolio site project.
+Old, outdated project. My first portfolio website. Form at the bottom no longer works.
